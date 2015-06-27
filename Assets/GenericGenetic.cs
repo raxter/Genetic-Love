@@ -4,32 +4,36 @@ using System.Collections.Generic;
 
 public class GeneticIndividual
 {
+    float fitnessHACK = 0;
     // sets the individual to a random one
     public void MakeRandom()
     {
         // todo
+        fitnessHACK = Random.Range(0f, 100f);
     }
 
     public float GetFitness()
     {
         // todo
-        return Random.Range(0f,100f);
+        return fitnessHACK;
     }
 
     public void Mutate()
     {
         // todo
+        fitnessHACK += Random.Range(-1, 1);
     }
 
     public void SetFromParents(GeneticIndividual a, GeneticIndividual b)
     {
         // todo
+        fitnessHACK = (a.GetFitness() + b.GetFitness()) / 2; 
     }
 }
 
 public class GenericGenetic
 {
-    List<GeneticIndividual> individuals = new List<GeneticIndividual>();
+    public List<GeneticIndividual> individuals = new List<GeneticIndividual>();
 
     public int population = 50;
 
